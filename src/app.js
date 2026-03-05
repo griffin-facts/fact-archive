@@ -1,4 +1,4 @@
-fetch("./pastmarketdata.csv")
+fetch("https://github.com/griffin-facts/fact-archive/blob/main/src/pastmarketdata.csv")
   .then((response) => response.text())
   .then((csv) => {
     const rows = csv.trim().split("\n");
