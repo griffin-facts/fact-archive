@@ -1,4 +1,4 @@
-fetch("pastmarketdata.csv")
+fetch("./pastmarketdata.csv")
   .then((response) => response.text())
   .then((csv) => {
     const rows = csv.trim().split("\n");
