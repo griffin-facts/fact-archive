@@ -1,0 +1,272 @@
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  margin: 0;
+  padding: 40px;
+
+  background-image: url("gradient-background.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.container {
+  max-width: 800px;
+  margin: auto;
+}
+
+.market-card {
+  will-change: transform;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.85);
+
+  padding: 20px;
+  border-radius: 16px;
+  margin-bottom: 20px;
+
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.market-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.15);
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.market-date-top {
+  font-size: 13px;
+  color: #888;
+  margin-bottom: 8px;
+}
+
+.market-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+/* Make header clickable */
+.market-header-wrapper {
+  cursor: pointer;
+}
+.market-header-wrapper::after {
+  content: "›";
+  float: right;
+  font-size: 18px;
+  transform: rotate(90deg);
+  transition: transform 0.3s ease;
+}
+
+.market-card.expanded .market-header-wrapper::after {
+  transform: rotate(270deg);
+}
+/* Collapsible content */
+.market-content {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.4s ease, opacity 0.3s ease;
+}
+
+/* Expanded state */
+.market-card.expanded .market-content {
+  max-height: 1000px; /* large enough to fit content */
+  opacity: 1;
+  margin-top: 16px;
+}
+
+.market-title {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.category-badge {
+  background: #ffe9e9;
+  color: #d00000;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.category-badge.upset {
+  background: #ffe9e9;
+  color: #d00000;
+}
+
+.category-badge.divergence {
+  background: #fff4e5;
+  color: #b35c00;
+}
+
+.category-badge.conviction {
+  background: #ede9ff;
+  color: #5a2dff;
+}
+
+.category-badge.consensus {
+  background: #e6f6ec;
+  color: #1e7f4f;
+}
+
+.options-row {
+  display: flex;
+  justify-content: space-between;
+  margin: 16px 0;
+  font-weight: 600;
+}
+
+.option1 {
+  color: #ff7a00;
+}
+.option2 {
+  color: #2e7dff;
+}
+
+.option-blocks {
+  display: flex;
+  gap: 12px;
+  margin: 18px 0;
+}
+
+.option-card {
+  flex: 1;
+  border-radius: 14px;
+  padding: 22px;
+  text-align: center;
+  color: white;
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.option-name {
+  font-size: 16px;
+  letter-spacing: 0.3px;
+}
+
+.option-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.option1-card {
+  background: linear-gradient(135deg, #ff8a1f, #ff6a00);
+}
+
+.option2-card {
+  background: linear-gradient(135deg, #3d8bfd, #2e7dff);
+}
+
+.option-name {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.bar-section {
+  margin-bottom: 12px;
+}
+
+.bar-section.emphasized {
+  margin-bottom: 18px;
+}
+
+.bar-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.bar-percent {
+  font-size: 14px;
+  font-weight: 600;
+  opacity: 0.9;
+}
+
+.split-bar {
+  display: flex;
+  height: 16px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: #e6e8ee;
+}
+
+.market-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  font-weight: 500;
+  color: #555;
+  margin: 16px 0 18px 0;
+}
+
+.option1-bar {
+  background: #ff7a00;
+}
+.option2-bar {
+  background: #2e7dff;
+}
+
+.market-actions {
+  margin-top: 16px;
+  display: flex;
+  gap: 10px;
+}
+
+.get-assets-link {
+  display: block;
+  margin-top: 12px;
+
+  text-align: right;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #111;
+
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.get-assets-link:hover {
+  color: #ff7a00;
+  transform: translateX(3px);
+}
+
+.get-assets-link:hover {
+  color: #ff7a00;
+  transform: translateX(3px);
+}
+
+.get-assets-link::after {
+  content: "";
+  display: block;
+  width: 0%;
+  height: 2px;
+  background: #ff7a00;
+  transition: width 0.25s ease;
+  margin-top: 3px;
+}
+
+.get-assets-link:hover::after {
+  width: 100%;
+}
+
+.button {
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+}
+
+.market-btn {
+  background: #333;
+}
+.assets-btn {
+  background: #666;
+}
